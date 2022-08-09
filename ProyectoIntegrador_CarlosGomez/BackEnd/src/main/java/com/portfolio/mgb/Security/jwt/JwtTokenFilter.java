@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package com.portfolio.mgb.Security.jwt;
 
@@ -20,7 +21,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 /**
  *
- * @author carlo
+ * @author Usuario
  */
 public class JwtTokenFilter extends OncePerRequestFilter {
 
@@ -36,15 +37,14 @@ public class JwtTokenFilter extends OncePerRequestFilter {
         try {
             String token = getToken(request);
             if (token != null && jwtProvider.validateToken(token)) {
-                String nombreUsuario = jwtProvider.getNombreUsuarioFromToken(token);
+                String nombreUsuario = jwtProvider.getNombreUSuarioFromToken(token);
                 UserDetails userDetails = userDetailsServiceImpl.loadUserByUsername(nombreUsuario);
                 UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(userDetails,
                         null, userDetails.getAuthorities());
                 SecurityContextHolder.getContext().setAuthentication(auth);
-
             }
         } catch (Exception e) {
-            logger.error("Falló el metodo doFilterInternal");
+            logger.error("Fallí el metodo doFilterInternal");
         }
         filterChain.doFilter(request, response);
     }

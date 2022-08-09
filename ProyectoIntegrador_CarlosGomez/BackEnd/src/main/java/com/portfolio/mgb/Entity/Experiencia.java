@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package com.portfolio.mgb.Entity;
 
@@ -11,14 +12,14 @@ import javax.persistence.Id;
 
 @Entity
 public class Experiencia {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nombreE;
     private String descripcionE;
+    
+    //Constructores
 
-//Constructores
     public Experiencia() {
     }
 
@@ -26,7 +27,8 @@ public class Experiencia {
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
     }
-//Getters y setters
+    
+    //Getters and setters
 
     public int getId() {
         return id;
@@ -51,6 +53,5 @@ public class Experiencia {
     public void setDescripcionE(String descripcionE) {
         this.descripcionE = descripcionE;
     }
-    
     
 }
